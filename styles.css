@@ -1,0 +1,85 @@
+* {
+ box-sizing: border-box;
+ font-family: 'Iceberg', cursive;
+}
+
+html {
+ min-height: 100vh;
+}
+
+body {
+ background-image: url("img/Black-sky.jpeg");
+ display: flex;
+ margin: 0;
+}
+
+.title {
+ grid-column: 1/-1;
+}
+
+.score-board {
+ grid-column: 1/ -1;
+ display: flex;
+ justify-content: space-between;
+ color: #ECC402;
+ font-size: 3em;
+}
+
+h1 {
+ text-align: center;
+ font-size: 6em;
+ background: -webkit-linear-gradient(#C58E03,#D8A902,#FFDF01, #ECC402, #B17303);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.container {
+ display: grid;
+ grid-template-columns: repeat(4, auto);
+ grid-gap: 10px;
+ margin: 50px;
+ justify-content: center;
+ perspective: 500px;
+}
+
+.card {
+ height: 175px;
+ width: 125px;
+ position: relative;
+ transform-style: preserve-3d;
+ transition: transform .5s;
+}
+
+.card:active {
+ transform: scale(0.97);
+ transition: transform .2s;
+}
+
+.card.flip {
+ transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ backface-visibility: hidden;
+ border-radius: 5px;
+ border-width: 1px;
+ border: 2px solid goldenrod;
+ transition: transform 500ms ease-in-out;
+}
+
+.front-face {
+ padding: 20px;
+ transform: rotateY(180deg);
+ background-image: radial-gradient(#02386E, #00264D, #00172D, #000B18);
+}
+
+.back-face {
+ background-color: black;
+ padding: 8px;
+}
